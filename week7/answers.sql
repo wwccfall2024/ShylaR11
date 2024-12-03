@@ -15,3 +15,15 @@ CREATE TABLE characters (
   level TINYINT UNSIGNED NOT NULL DEFAULT 1,
   FOREIGN KEY (player_id) REFERENCES players (player_id)
 );
+
+CREATE TABLE winner (
+  character_id INT UNSIGNED PRIMARY KEY NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE
+  );
+CREATE TABLE character_stats (
+  character_id INT UNSIGNED PRIMARY KEY NOT NULL,
+  health IN unsigned NOT NULL DEFAULT 100,
+  armor INT UNSIGNED NOT NULL DEFAULT 0,
+  FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE
+  );
