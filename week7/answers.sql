@@ -7,3 +7,11 @@ CREATE TABLE players (
   last_name VARCHAR(30) NOT NULL,
   email VARCHAR(50) NOT NULL
 );
+
+CREATE TABLE characters (
+  character_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  player_id INT UNSIGNED NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  level TINYINT UNSIGNED NOT NULL DEFAULT 1,
+  FOREIGN KEY (player_id) REFERENCES players (player_id)
+);
